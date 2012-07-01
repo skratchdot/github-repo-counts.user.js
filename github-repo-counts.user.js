@@ -8,7 +8,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.0
+// @version        1.1
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true */
@@ -16,7 +16,7 @@
 var main = function () {
 	'use strict';
 	jQuery(document).ready(function () {
-		jQuery('ul.repo_filterer li a').each(function () {
+		jQuery('.page-profile ul.repo_filterer li a').each(function () {
 			try {
 				var elem = jQuery(this),
 					selector = elem.attr('rel'),
