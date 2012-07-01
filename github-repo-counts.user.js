@@ -3,17 +3,26 @@
 // @namespace      https://github.com/skratchdot/github-repo-counts.user.js
 // @description    A user script to display repo counts when browsing Github repository pages.
 // @include        https://github.com/*
+// @match          https://github.com/*
+// @run-at         document-end
+// @icon           http://skratchdot.com/favicon.ico
+// @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
+// @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
+// @version        1.0
 // ==/UserScript==
+/*global jQuery */
+/*jslint browser: true */
 
 var main = function () {
-	$(document).ready(function() {
-		$('ul.repo_filterer li a').each(function() {
+	'use strict';
+	jQuery(document).ready(function () {
+		jQuery('ul.repo_filterer li a').each(function () {
 			try {
-				var elem = $(this);
-				var selector = elem.attr('rel');
-				var elements = $('ul.repo_list').find('li.' + selector);
-				elem.append(' (' + elements.size() + ')');				
-			} catch(e) {}
+				var elem = jQuery(this),
+					selector = elem.attr('rel'),
+					elements = jQuery('ul.repo_list').find('li.' + selector);
+				elem.append(' (' + elements.size() + ')');
+			} catch (e) {}
 		});
 	});
 };
