@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           GitHub Repo Counts
+// @name           GitHub: Repo Counts
 // @namespace      https://github.com/skratchdot/github-repo-counts.user.js
 // @description    A user script to display repo counts when browsing Github repository pages.
 // @include        https://github.com/*
@@ -8,7 +8,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.1
+// @version        1.2
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true */
