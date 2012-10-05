@@ -9,7 +9,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.4
+// @version        1.5
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true */
@@ -22,7 +22,7 @@ var main = function () {
 			try {
 				var elem = jQuery(this),
 					selector = elem.attr('rel'),
-					elements = jQuery('ul.repo_list').find('li.' + selector);
+					elements = jQuery('ul.js-repo-list').find('li.' + selector);
 				elem.append(' (' + elements.size() + ')');
 				elem.css('font-size', '11px');
 			} catch (e) {}
