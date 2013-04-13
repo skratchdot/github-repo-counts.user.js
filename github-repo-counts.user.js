@@ -9,12 +9,12 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.5
+// @version        1.6
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true */
 
-var main = function () {
+(function () {
 	'use strict';
 
 	var init = function () {
@@ -39,9 +39,4 @@ var main = function () {
 		});
 		init();
 	});
-};
-
-// Inject our main script
-var script = document.createElement('script');
-script.textContent = '(' + main.toString() + ')();';
-document.body.appendChild(script);
+}());
