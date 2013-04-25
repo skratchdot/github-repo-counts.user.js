@@ -9,7 +9,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.6
+// @version        1.7
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true */
@@ -18,6 +18,10 @@
 	'use strict';
 
 	var init = function () {
+		// Make input filter smaller when the "new repo" button exists
+		if (jQuery('body.page-profile .filter-bar a.new-repo').length > 0) {
+	        $('#your-repos-filter').css('width','210px');
+		}
 		jQuery('.page-profile ul.repo_filterer li a').each(function () {
 			try {
 				var elem = jQuery(this),
@@ -27,8 +31,6 @@
 				elem.css('font-size', '11px');
 			} catch (e) {}
 		});
-		// Make input filter a little bit smaller
-		jQuery('body.page-profile-next .profilecols .filter-bar .filter_input').width(250);
 	};
 
 	jQuery(document).ready(function () {
