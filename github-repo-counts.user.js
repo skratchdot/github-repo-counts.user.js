@@ -4,41 +4,28 @@
 // @description    A user script to display repo counts when browsing Github repository pages.
 // @include        https://github.com/*
 // @match          https://github.com/*
+// @require        https://gist.github.com/skratchdot/5604120/raw/_init.js
+// @require        https://gist.github.com/skratchdot/5604120/raw/repo-counts.js
 // @run-at         document-end
 // @grant          none
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.7
+// @version        1.8
 // ==/UserScript==
-/*global jQuery */
-/*jslint browser: true */
+/*global SKRATCHDOT, document */
 
-(function () {
-	'use strict';
-
-	var init = function () {
-		// Make input filter smaller when the "new repo" button exists
-		if (jQuery('body.page-profile .filter-bar a.new-repo').length > 0) {
-	        $('#your-repos-filter').css('width','210px');
-		}
-		jQuery('.page-profile ul.repo_filterer li a').each(function () {
-			try {
-				var elem = jQuery(this),
-					selector = elem.attr('rel'),
-					elements = jQuery('ul.js-repo-list').find('li.' + selector);
-				elem.append(' (' + elements.size() + ')');
-				elem.css('font-size', '11px');
-			} catch (e) {}
-		});
+// This code is only going to run for browsers that don't support
+// the @require annotation when executing userscripts.
+if ('undefined' === typeof SKRATCHDOT) {
+	var addScript = function (src) {
+		'use strict';
+		var script = document.createElement('script');
+		script.src = src;
+		document.body.appendChild(script);
+		document.body.removeChild(script);
 	};
 
-	jQuery(document).ready(function () {
-		jQuery(document).on('pjax:end', function (event) {
-			if (jQuery(event.relatedTarget).parents('li[data-tab="repo"]').length > 0) {
-				init();
-			}
-		});
-		init();
-	});
-}());
+	// Required by: repo-filter-info
+	addScript('https://gist.github.com/skratchdot/5604120/raw/repo-counts.js');
+}
