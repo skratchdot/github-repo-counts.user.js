@@ -11,7 +11,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
 // @updateURL      https://github.com/skratchdot/github-repo-counts.user.js/raw/master/github-repo-counts.user.js
-// @version        1.8
+// @version        1.9
 // ==/UserScript==
 /*global SKRATCHDOT, document */
 
